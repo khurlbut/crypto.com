@@ -6,17 +6,17 @@ import (
 	"strconv"
 )
 
-func newPrice(price string, currency currency) Price {
-	amount, _ := strconv.ParseFloat(price, currency.Precision)
+func newPrice(p string, c currency) price {
+	a, _ := strconv.ParseFloat(p, c.Precision)
 
-	return Price{
-		Amount:         amount,
-		Currency:       currency,
-		FormattedPrice: formatPrice(amount, currency.Symbol),
+	return price{
+		Amount:         a,
+		Currency:       c,
+		FormattedPrice: formatPrice(a, c.Symbol),
 	}
 }
 
-type Price struct {
+type price struct {
 	Amount         float64
 	Currency       currency
 	FormattedPrice string
