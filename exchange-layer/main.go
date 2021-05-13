@@ -6,8 +6,8 @@ import (
 
 func main() {
 
-	for _, val := range currencyPairs() {
-		sp := exchange(newCoinBaseSpotPriceRequest(val))
+	for _, currencyPair := range currencyPairs() {
+		sp := exchange(coinBaseSpotPriceRequest(currencyPair))
 		fmt.Println(sp.spotPrice().format())
 	}
 

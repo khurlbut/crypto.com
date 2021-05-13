@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func newCoinBaseSpotPriceRequest(pair string) spotPriceRequest {
+func coinBaseSpotPriceRequest(pair string) spotPriceRequest {
 	coin, quote := currencyPair(pair)
 	return spotPriceRequest{
 		coin,
