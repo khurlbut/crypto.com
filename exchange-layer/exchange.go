@@ -1,7 +1,7 @@
 package main
 
 type exchange interface {
-	spotPrice() SpotPrice
+	spotPrice() spotPrice
 }
 
 const (
