@@ -1,0 +1,5 @@
+alias b='go install && mv ${GOPATH}/bin/exchange-layer ${GOPATH}/bin/main'
+alias r='main'
+alias pc='main | grep BTC && main | grep ETH'
+alias br='b && r'
+
