@@ -13,7 +13,7 @@ var currencyPairSet = map[string]struct{}{
 	"LINK-USD": {},
 }
 
-func currencyPair(currencyPair string) (Currency, Currency) {
+func currencyPair(currencyPair string) (currency, currency) {
 	_, ok := currencyPairSet[currencyPair]
 	if !ok {
 		currencyPair = "BTC-USD"

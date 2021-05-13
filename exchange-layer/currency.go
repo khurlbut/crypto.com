@@ -1,6 +1,6 @@
 package main
 
-type Currency struct {
+type currency struct {
 	Code      string
 	Label     string
 	Symbol    string
@@ -19,7 +19,7 @@ const (
 	XLM  = iota
 )
 
-var currencies = map[int]Currency{
+var currencies = map[int]currency{
 	ADA:  {"ADA", "Cardano", "", 8},
 	AAVE: {"AAVE", "Aave", "", 5},
 	BTC:  {"BTC", "Bitcoin", "", 8},
