@@ -15,10 +15,10 @@ func newCoinBaseSpotPriceRequest(pair string) SpotPriceRequest {
 }
 
 type spotPriceResponse struct {
-	Data `json:"data"`
+	data `json:"data"`
 }
 
-type Data struct {
+type data struct {
 	Base     string `json:"base"`
 	Currency string `json:"currency"`
 	Amount   string `json:"amount"`
