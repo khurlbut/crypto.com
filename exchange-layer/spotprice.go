@@ -26,7 +26,7 @@ func (sp SpotPrice) format() string {
 	var b bytes.Buffer
 
 	b.WriteString(fmt.Sprintf("\t%s", sp.CoinCurrency.Code))
-	b.WriteString(fmt.Sprintf("\t%s", sp.Price.FormattedPrice))
+	b.WriteString(fmt.Sprintf("\t%s", sp.Price.formattedPrice))
 	b.WriteString(fmt.Sprintf("\t%s", sp.Exchange))
 
 	return b.String()

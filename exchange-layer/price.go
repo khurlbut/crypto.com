@@ -10,16 +10,16 @@ func newPrice(p string, c currency) price {
 	a, _ := strconv.ParseFloat(p, c.Precision)
 
 	return price{
-		Amount:         a,
-		Currency:       c,
-		FormattedPrice: formatPrice(a, c.Symbol),
+		amount:         a,
+		currency:       c,
+		formattedPrice: formatPrice(a, c.Symbol),
 	}
 }
 
 type price struct {
-	Amount         float64
-	Currency       currency
-	FormattedPrice string
+	amount         float64
+	currency       currency
+	formattedPrice string
 }
 
 func formatPrice(amount float64, symbol string) string {
