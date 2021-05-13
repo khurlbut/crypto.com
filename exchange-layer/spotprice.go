@@ -12,8 +12,8 @@ import (
 
 type spotPrice struct {
 	coinCurrency currency
-	exchange     string
 	price        price
+	exchange     string
 }
 
 type spotPriceRequest struct {
