@@ -11,23 +11,23 @@ import (
 )
 
 type spotPrice struct {
-	CoinCurrency currency
-	Exchange     string
-	Price        price
+	coinCurrency currency
+	exchange     string
+	price        price
 }
 
 type spotPriceRequest struct {
-	CoinCurrency  currency
-	QuoteCurrency currency
-	Url           string
+	coinCurrency  currency
+	quoteCurrency currency
+	url           string
 }
 
 func (sp spotPrice) format() string {
 	var b bytes.Buffer
 
-	b.WriteString(fmt.Sprintf("\t%s", sp.CoinCurrency.Code))
-	b.WriteString(fmt.Sprintf("\t%s", sp.Price.formattedPrice))
-	b.WriteString(fmt.Sprintf("\t%s", sp.Exchange))
+	b.WriteString(fmt.Sprintf("\t%s", sp.coinCurrency.Code))
+	b.WriteString(fmt.Sprintf("\t%s", sp.price.formattedPrice))
+	b.WriteString(fmt.Sprintf("\t%s", sp.exchange))
 
 	return b.String()
 }
@@ -42,7 +42,7 @@ func (spr spotPriceRequest) httpGet() []byte {
 }
 
 func (spr spotPriceRequest) get() io.ReadCloser {
-	res, e := http.Get(spr.Url)
+	res, e := http.Get(spr.url)
 	if e != nil {
 		fmt.Print(e.Error())
 		os.Exit(1)

@@ -8,9 +8,9 @@ import (
 func newCoinBaseSpotPriceRequest(pair string) spotPriceRequest {
 	coin, quote := currencyPair(pair)
 	return spotPriceRequest{
-		CoinCurrency:  coin,
-		QuoteCurrency: quote,
-		Url:           fmt.Sprintf("http://api.coinbase.com/v2/prices/%s/spot", pair),
+		coinCurrency:  coin,
+		quoteCurrency: quote,
+		url:           fmt.Sprintf("http://api.coinbase.com/v2/prices/%s/spot", pair),
 	}
 }
 
@@ -25,15 +25,15 @@ type data struct {
 }
 
 func (req spotPriceRequest) spotPrice() spotPrice {
-	coin := req.CoinCurrency
-	quote := req.QuoteCurrency
+	coin := req.coinCurrency
+	quote := req.quoteCurrency
 	spr := new(spotPriceResponse)
 
 	json.Unmarshal(req.httpGet(), &spr)
 
 	return spotPrice{
-		CoinCurrency: coin,
-		Price:        newPrice(spr.Amount, quote),
-		Exchange:     exchanges[CoinBase],
+		coinCurrency: coin,
+		price:        newPrice(spr.Amount, quote),
+		exchange:     exchanges[CoinBase],
 	}
 }
